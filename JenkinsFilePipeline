@@ -16,7 +16,7 @@ pipeline {
 
         stage('Testing') {
             steps {
-                sh 'firebase deploy -P tic-tac-toe-testing-352e8 --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh 'firebase deploy -P devops-assignment-8-test-17168 --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
 
