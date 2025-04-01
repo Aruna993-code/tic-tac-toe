@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:20-alpine'  // Use Node.js 20 Alpine image
+            image 'node:20-alpine'
         }
     }
     environment {
@@ -16,23 +16,21 @@ pipeline {
 
         stage('Testing') {
             steps {
-                sh 'firebase deploy -P devops-assignment-8-test-17168 --token ${FIREBASE_DEPLOY_TOKEN}'
-
+                sh "firebase deploy -P devops-assignment-8-test-17168 --token ${FIREBASE_DEPLOY_TOKEN}"
             }
         }
 
         stage('Staging') {
             steps {
-                sh 'firebase deploy -P devops-assignment-8-stag-110a9 --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh "firebase deploy -P devops-assignment-8-stag-110a9 --token ${FIREBASE_DEPLOY_TOKEN}"
             }
         }
 
         stage('Production') {
             steps {
-                sh 'firebase deploy -P devops-assignment-8-prod-15a0c --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh "firebase deploy -P devops-assignment-8-prod-15a0c --token ${FIREBASE_DEPLOY_TOKEN}"
             }
         }
     }
 }
-
 
